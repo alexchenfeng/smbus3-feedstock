@@ -10,9 +10,11 @@ package:
 source:
   url: https://pypi.org/packages/source/s/smbus3/smbus3-${{ version }}.tar.gz
   sha256: 91eed38fb6b7d2f893fbfc3f37006aa41e6913fdda5b3a9a79238b353760f92e
+  patches:
+    - patches/00-py314-c_ulong.patch
 
 build:
-  number: 1
+  number: 2
   # imports fcntl and talks to /dev/i2c-* devices; unix-only. Not noarch
   # because conda-forge's linter forbids skips on noarch packages.
   skip: win
